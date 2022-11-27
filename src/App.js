@@ -1,23 +1,42 @@
-import logo from './logo.svg';
-import './App.css';
-
+import "./App.css";
+import Filter from "./components/Filter";
+import BookInfo from "./components/BookInfo";
+import { useState } from "react";
 function App() {
+  const [books, setBooks] = useState([]);
+  const [page, setPage] = useState(10);
+  const [author, setAuthor] = useState("rowling");
+  const [topic, setTopic] = useState("");
+  const [lang, setLang] = useState("en");
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="bg-black w-full h-full">
+      <h1 className="text-yellow-100 text-center font-extrabold text-4xl pt-2">
+        LIBRARY
+      </h1>
+      <Filter
+        books={books}
+        setBooks={setBooks}
+        page={page}
+        setPage={setPage}
+        author={author}
+        setAuthor={setAuthor}
+        topic={topic}
+        setTopic={setTopic}
+        lang={lang}
+        setLang={setLang}
+      />
+      <BookInfo
+        books={books}
+        setBooks={setBooks}
+        page={page}
+        setPage={setPage}
+        author={author}
+        setAuthor={setAuthor}
+        topic={topic}
+        setTopic={setTopic}
+        lang={lang}
+        setLang={setLang}
+      />
     </div>
   );
 }
